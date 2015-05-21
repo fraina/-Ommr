@@ -43,28 +43,29 @@ audio.init({
  - type (General, Sound object)
 
 ### API ###
+
  - play
 ```
 audio.play('soundA');
 audio.play('soundA', 'ogg');
-audio.play();   // play the last track
+audio.play();   // the last played track
 ```
  - pause
 ```
 audio.pause('soundA');
-audio.pause();   // pause the last played track
+audio.pause();   // the last played track
 ```
  - pauseAll
  - stop
 ```
 audio.stop('soundA');
-audio.stop();   // stop the last played track
+audio.stop();   // the last played track
 ```
  - stopAll
  - toggleMuted
  - setSoundVolume
 ```
-audio.setSoundVolume('sound_A', 0.5);
+audio.setSoundVolume('soundA', 0.5);
 audio.setSoundVolume(0.5);   // change the last played track's volume to 0.5
 ```
  - setVolume

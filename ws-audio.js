@@ -157,7 +157,7 @@
       return res;
     },
 
-    // helper method
+    // helpers
 
     checkSoundValid: function(sound) {
       var res = false;
