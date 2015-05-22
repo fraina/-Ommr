@@ -173,7 +173,19 @@
     },
 
     getTrackList: function() {
-      return Object.keys(this.trackList);
+      var res = {},
+          keys = Object.keys(this.trackList),
+          i = 0;
+
+      for (i; i < keys.length; i++) {
+        res[i] = {
+          'name': keys[i],
+          'duration': this.trackList[keys[i]].audio.duration,
+          'playing': (this.trackList[keys[i]].audio.currentTime) ? true : ''
+        }
+      }
+
+      return res;
     },
 
     // helpers
