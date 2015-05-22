@@ -1,3 +1,4 @@
+// WebSounder - Audio
 (function(factory){
     var id = 'WSAudio';
     if (typeof define === 'function' && define.amd) {
@@ -14,6 +15,7 @@
     this.trackList = {};
     this.playing = '';
     this.multiplay = false;
+    this.callbacks = {};
   }
 
   WSAudio.prototype = {
@@ -29,6 +31,7 @@
       if (params['autoplay'] === true) {
         (Object.keys(soundData).length === 1) ? autoplay = true : console.warn('Disable autoplay while there are multi sounds.');
       }
+      if (params['callbacks']) this.callbacks = params['callbacks'];
 
       this.formatPath = this.formatPath(path);
       this.multiplay = (typeof(params.multiplay) === 'boolean') ? params.multiplay : false;
@@ -76,6 +79,8 @@
             return false;
         }
       }
+
+      this.bindEventListener();
 
       return this;
     },
@@ -142,10 +147,20 @@
     },
 
     status: function() {
-      var res = null;
+      var res = null,
+          self = this;
       if (this.o != null) {
         res = {
-          'isPlaying': (this.o.currentTime) ? true : false,
+          'status': (function() {
+            var isPlaying = (self.o.currentTime) ? true : false,
+                isPaused = self.o.paused,
+                ret = '';
+            if (isPlaying && isPaused) { ret = 'pause'; }
+            else if ((!isPlaying && isPaused) || (!isPlaying && !isPaused)) { ret = 'stop'; }
+            else if (isPlaying && !isPaused) { ret = 'playing'; }
+
+            return ret;
+          })(),
           'sound': this.playing,
           'currentTime': this.o.currentTime,
           'duration': this.o.duration,
@@ -155,6 +170,10 @@
       }
 
       return res;
+    },
+
+    getTrackList: function() {
+      return Object.keys(this.trackList);
     },
 
     // helpers
@@ -224,6 +243,16 @@
         var volume = this.trackList[key].audio.getAttribute('volume');
         this.setSoundVolume(key, (volume) ? volume : defaultVolume);
       }
+
+      return this;
+    },
+
+    bindEventListener: function() {
+      var self = this;
+      function ael(key) {
+        self.o.addEventListener(key, function() { self.callbacks[key](); })
+      }
+      for (var key in this.callbacks) ael(key);
 
       return this;
     }

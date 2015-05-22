@@ -27,7 +27,10 @@ audio.init({
   'volume': 0.7,
   'loop': true,
   'autoplay': true,
-  'preload': true
+  'preload': true,
+  'callbacks': {
+    // canplay, play, stop ...
+  }
 });
 ```
 
@@ -37,6 +40,13 @@ audio.init({
 
  - path (General)
  - autoplay (General)
+ - callbacks (General):
+   * play
+   * ended
+   * pause
+   * timeupdate
+   * durationchange
+   * volumechange
  - preload (General, Sound object)
  - volume (General, Sound object)
  - loop (General, Sound object)
@@ -72,3 +82,7 @@ audio.setSoundVolume(0.5);   // change the last played track's volume to 0.5
 
    This method will influence all tracks, including those tracks were changed by `setSoundVolume`.
  - status
+ - getTrackList
+
+## License ##
+MIT
