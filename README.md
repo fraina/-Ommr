@@ -1,12 +1,12 @@
-WebSounder - Audio
+♪ommr
 =========
 
-Play sounds with html5 audio tag.
+Play sound from JavaScript with HTML5 audio tag backend.
 
 ## Initialization ##
-Import plugin: ws-audio.js.
+Import plugin: ommr.js.
 ```
-var audio = new WSAudio();
+var audio = new Ommr();
 audio.init({
   'sounds': {
     'track_alias': {
@@ -29,7 +29,7 @@ audio.init({
   'autoplay': true,
   'preload': true,
   'callbacks': {
-    // canplay, play, stop ...
+    // play, stop ...
   }
 });
 ```

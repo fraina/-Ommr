@@ -1,6 +1,11 @@
-// WebSounder - Audio
+/*
+ * ♪ommr
+ * Play sound from JavaScript with HTML5 audio tag backend.
+ * http://github.com/Fraina/-Ommr
+ * License:  MIT
+ */
 (function(factory){
-    var id = 'WSAudio';
+    var id = 'Ommr';
     if (typeof define === 'function' && define.amd) {
         define(id, [], factory);
     } else {
@@ -9,7 +14,7 @@
 })(function(){
   'use strict';
 
-  var WSAudio = function() {
+  var Ommr = function() {
     // pointer
     this.o = null;
     this.trackList = {};
@@ -18,7 +23,7 @@
     this.callbacks = {};
   }
 
-  WSAudio.prototype = {
+  Ommr.prototype = {
     init: function(params) {
       var soundData = params.sounds || {},
           loopAll = params['loop'] || false,
@@ -203,15 +208,15 @@
     },
 
     createAudioTag: function(soundData, attr) {
-      var WSAudioWrapper = document.createElement('audio'),
+      var audioWrapper = document.createElement('audio'),
           appointType = attr.type || null;
-      this.setAttributes(WSAudioWrapper, attr);
-      if (WSAudioWrapper.canPlayType) {
-        this.createSourceTag(WSAudioWrapper, soundData, appointType);
+      this.setAttributes(audioWrapper, attr);
+      if (audioWrapper.canPlayType) {
+        this.createSourceTag(audioWrapper, soundData, appointType);
       } else {
         throw new Error('No audio support');
       }
-      return WSAudioWrapper;
+      return audioWrapper;
     },
 
     createSourceTag: function(audio, soundData, appointType) {
@@ -271,6 +276,6 @@
 
   }
 
-  return WSAudio;
+  return Ommr;
 
 });
