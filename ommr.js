@@ -4,14 +4,21 @@
  * http://github.com/Fraina/-Ommr
  * License:  MIT
  */
-(function(factory){
-    var id = 'Ommr';
-    if (typeof define === 'function' && define.amd) {
-        define(id, [], factory);
-    } else {
-        self[id] = factory();
-    }
-})(function(){
+(function(root, factory){
+  if (typeof define === 'function' && define.amd) {
+      // AMD
+      define([], factory);
+  } else if (typeof define === 'function') {
+      // CMD
+      define(factory);
+  } else if (typeof exports === 'object') {
+      // Node, CommonJS-like
+      module.exports = factory();
+  } else {
+      // Browser globals (root is window)
+      root.returnExports = factory();
+  }
+})(this, function(){
   'use strict';
 
   var Ommr = function() {
