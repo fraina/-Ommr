@@ -72,6 +72,7 @@ audio.stop('soundA');
 audio.stop();   // the last played track
 ```
  - stopAll
+ - changeProgress('newCurrentTime')
  - toggleMuted
  - setSoundVolume
 ```

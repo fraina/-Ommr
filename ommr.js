@@ -122,6 +122,12 @@
       return this;
     },
 
+    changeProgress: function(newCurrentTime) {
+      this.pause();
+      this.o.currentTime = newCurrentTime;
+      this.play();
+    },
+
     toggleMuted: function() {
       if (this.status() != null) {
         var mutedStatus = this.o.muted;
