@@ -25,7 +25,6 @@ audio.init({
   },
   'path': 'path/',
   'volume': 0.7,
-  'loop': true,
   'autoplay': true,
   'preload': true,
   'callbacks': {
@@ -47,9 +46,9 @@ audio.init({
    * timeupdate
    * durationchange
    * volumechange
+ - loop (Sound object)
  - preload (General, Sound object)
  - volume (General, Sound object)
- - loop (General, Sound object)
  - type (General, Sound object)
 
 ### API ###

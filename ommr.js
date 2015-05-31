@@ -33,7 +33,6 @@
   Ommr.prototype = {
     init: function(params) {
       var soundData = params.sounds || {},
-          loopAll = params['loop'] || false,
           preloadAll = params['preload'] || false,
           defaultVolume = params['volume'] || 1,
           audioType = params['type'] || null,
@@ -51,7 +50,7 @@
       for (var key in soundData) {
         var attr = {};
         if (autoplay) attr.autoplay = '';
-        if (loopAll != false && soundData[key].loop != false) attr.loop = '';
+        if (soundData[key].loop != undefined && soundData[key].loop != false) attr.loop = '';
         if (preloadAll != false && soundData[key].preload != false) attr.preload = '';
         if (soundData[key].volume >= 0 && soundData[key].volume <= 1) attr.volume = soundData[key].volume;
         if (audioType != null || soundData[key].type) attr.type = soundData[key].type || audioType;
