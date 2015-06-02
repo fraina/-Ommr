@@ -61,6 +61,7 @@
         }
       }
       this.applyDefaultVolume(defaultVolume);
+      this.bindEventListener();
 
       return this;
     },
@@ -90,8 +91,6 @@
             return false;
         }
       }
-
-      this.bindEventListener();
 
       return this;
     },
@@ -172,6 +171,7 @@
             var isPlaying = (self.o.currentTime) ? true : false,
                 isPaused = self.o.paused,
                 ret = '';
+
             if (isPlaying && isPaused) { ret = 'pause'; }
             else if ((!isPlaying && isPaused) || (!isPlaying && !isPaused)) { ret = 'stop'; }
             else if (isPlaying && !isPaused) { ret = 'playing'; }
@@ -278,10 +278,15 @@
 
     bindEventListener: function() {
       var self = this;
-      function ael(key) {
-        self.o.addEventListener(key, function() { self.callbacks[key](); })
+      function addEventListener(audio, key) {
+        audio.addEventListener(key, function() { self.callbacks[key](); })
       }
-      for (var key in this.callbacks) ael(key);
+      for (var key in this.trackList) {
+        var track = key;
+        for (var key in self.callbacks) {
+          addEventListener(self.trackList[track].audio, key)
+        }
+      };
 
       return this;
     }
