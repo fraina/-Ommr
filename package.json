@@ -1,0 +1,24 @@
+{
+  "name": "ommr",
+  "version": "0.0.3",
+  "description": "Play sound from JavaScript with HTML5 audio tag backend.",
+  "main": "ommr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fraina/-Ommr.git"
+  },
+  "keywords": [
+    "audio",
+    "html5",
+    "play sound"
+  ],
+  "author": "Fraina <jscaem@gmail.com> (http://github.com/Fraina)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fraina/-Ommr/issues"
+  },
+  "homepage": "https://github.com/Fraina/-Ommr#readme"
+}

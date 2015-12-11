@@ -1,7 +1,11 @@
 ♪ommr
 =========
 
+[![npm](https://img.shields.io/npm/l/express.svg?style=flat)](https://opensource.org/licenses/MIT)
+[![npm](https://img.shields.io/npm/v/ommr.svg?style=flat)](https://www.npmjs.com/package/ommr)
+
 Play sound from JavaScript with HTML5 audio tag backend.
+
 
 ## Initialization ##
 Import plugin: ommr.js.
