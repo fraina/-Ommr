@@ -3,6 +3,7 @@
 
 [![npm](https://img.shields.io/npm/l/express.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![npm](https://img.shields.io/npm/v/ommr.svg?style=flat)](https://www.npmjs.com/package/ommr)
+[![Bower](https://img.shields.io/bower/v/ommr.svg)](https://github.com/Fraina/-ommr)
 
 Play sound from JavaScript with HTML5 audio tag backend.
 

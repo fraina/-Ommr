@@ -1,0 +1,15 @@
+{
+  "name": "ommr",
+  "description": "Play sound from JavaScript with HTML5 audio tag backend.",
+  "main": "ommr.js",
+  "authors": [
+    "Fraina <jscaem@gmail.com> (http://github.com/Fraina)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "audio",
+    "html5",
+    "play sound"
+  ],
+  "homepage": "https://github.com/Fraina/-Ommr"
+}
