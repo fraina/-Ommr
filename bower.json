@@ -11,5 +11,6 @@
     "html5",
     "play sound"
   ],
-  "homepage": "https://github.com/Fraina/-Ommr"
+  "homepage": "https://github.com/Fraina/-Ommr",
+  "ignore": [ "*.html", "path/", ".git" ]
 }
