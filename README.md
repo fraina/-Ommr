@@ -32,6 +32,7 @@ audio.init({
   'volume': 0.7,
   'autoplay': true,
   'preload': true,
+  'multiplay': true,
   'callbacks': {
     // play, stop ...
   }
