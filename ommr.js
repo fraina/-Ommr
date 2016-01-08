@@ -27,6 +27,7 @@
     this.trackList = {};
     this.playing = '';
     this.multiplay = false;
+    this.isMuted = false;
     this.callbacks = {};
   }
 
@@ -76,6 +77,9 @@
         // reflesh pointer
         this.o = this.trackList[sound].audio;
         this.playing = sound;
+        if (this.o.muted !== this.isMuted) {
+          this.toggleMuted();
+        }
         switch (arguments.length) {
           case 1:
             this.o.play();
@@ -134,6 +138,7 @@
     },
 
     toggleMuted: function() {
+      this.isMuted = (!this.o) ? true : this.o.muted;
       if (this.status() != null) {
         var mutedStatus = this.o.muted;
         for (var key in this.trackList) {
