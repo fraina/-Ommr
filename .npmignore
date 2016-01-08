@@ -12,6 +12,5 @@ Icon
 # --------------------
 # Develop Files
 # --------------------
-*.path
+path/
 *.html
-.git
