@@ -1,6 +1,6 @@
 {
   "name": "ommr",
-  "version": "0.1.1",
+  "version": "1.1.2",
   "description": "Play sound from JavaScript with HTML5 audio tag backend.",
   "main": "ommr.js",
   "scripts": {

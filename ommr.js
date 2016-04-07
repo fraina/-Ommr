@@ -49,7 +49,7 @@
       this.multiplay = (typeof(params.multiplay) === 'boolean') ? params.multiplay : false;
 
       for (var key in soundData) {
-        var attr = {};
+        var attr = { preload: 'none' };
         if (autoplay) attr.autoplay = '';
         if (soundData[key].loop != undefined && soundData[key].loop != false) attr.loop = '';
         if (preloadAll != false && soundData[key].preload != false) attr.preload = '';
